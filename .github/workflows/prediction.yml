@@ -1,0 +1,44 @@
+name: Time-series-prediction-model
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
+   
+    steps:
+    - uses: actions/checkout@v2
+    - name: cml_run
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Your ML workflow goes here
+        pip install -r requirements.txt
+        python model.py
+        python collect.py
+        python eda.py
+        python preprocesing.py
+        
+        # Write your CML report
+        echo "## Les Metriques:" >> report.md
+        cat metrics.txt >> report.md
+        
+        echo "## Visualisation des données: " >>report.md
+        cml-publish ClosePrice.png --md >>report.md
+        cml-publish test_stationarity.png --md >>report.md        
+        cml-publish trainTest.png --md >>report.md        
+        cml-publish PricePrediction.png --md >>report.md
+        
+        cml-send-comment report.md
+        
+        # read files in the docker container
+        ls -l
+        
+        # move file from container to github repository
+        git config --global user.email "pierrot25fr@yahoo.fr"
+        git config --global user.name "pjulma"
+        git add . /file
+        git commit -m "New file Added"
+        git push
