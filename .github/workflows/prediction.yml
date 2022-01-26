@@ -39,6 +39,6 @@ jobs:
         # move file from container to github repository
         git config --global user.email "pierrot25fr@yahoo.fr"
         git config --global user.name "pjulma"
-        git add modele_LR.pkl ./files
+        git add modele_LR.pkl,report.md ./files
         git commit -m "New file Added"
         git push
