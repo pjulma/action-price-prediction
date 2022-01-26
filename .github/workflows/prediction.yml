@@ -19,7 +19,7 @@ jobs:
         python model/model.py
         python model/collect.py
         python model/eda.py
-        python model/preprocesing.py
+        #python model/preprocesing.py
         
         # Write your CML report
         echo "## Les Metriques:" >> report.md
@@ -40,7 +40,7 @@ jobs:
         git config --global user.email "pierrot25fr@yahoo.fr"
         git config --global user.name "pjulma"
         git add /files/timeseries.csv
-        git add /files/timeseries_trans.csv
+        #git add /files/timeseries_trans.csv
         git add /files/ClosePrice.png
         git commit -m "New file Added"
         git push
