@@ -39,6 +39,6 @@ jobs:
         # move file from container to github repository
         git config --global user.email "pierrot25fr@yahoo.fr"
         git config --global user.name "pjulma"
-        git add . /files
+        git add /files/ClosePrice.png
         git commit -m "New file Added"
         git push
