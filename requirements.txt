@@ -20,11 +20,13 @@ WTForms
 pandas_datareader
 #random
 datetime
-statsmodels
-#math
-statsmodels
 
 warnings
 pylab
 plotly
 streamlit
+
+statsmodels
+#math
+
+
