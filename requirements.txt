@@ -19,7 +19,7 @@ wincertstore
 WTForms
 pandas_datareader
 #random
-datetime
+#datetime
 
 warnings
 pylab
